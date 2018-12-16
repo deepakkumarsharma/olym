@@ -6,6 +6,7 @@ class DataScreen extends Component {
     return (
       <View>
         <Text>This is Data Screen Page</Text>
+        {/* Button to go all the way up */}
         <Button
           title="Back to top"
           onPress={() => this.props.navigation.popToTop()}
