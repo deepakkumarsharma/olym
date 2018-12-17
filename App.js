@@ -6,9 +6,9 @@ import DataScreen from "./components/Data/DataScreen";
 
 // Added pages in Stack Navigator
 const AppStackNavigator = createStackNavigator({
+  Data: DataScreen,
   Home: HomeScreen,
-  Login: LoginScreen,
-  Data: DataScreen
+  Login: LoginScreen
 });
 
 // Container where all pages saved for navigation
