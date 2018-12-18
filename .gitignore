@@ -1,3 +1,4 @@
+components/Constants/Lava.js
 node_modules/**/*
 .expo/*
 npm-debug.*
