@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import { Text, View, Button, StyleSheet } from "react-native";
+import { Text, View, Button, StyleSheet, Image } from "react-native";
 
 class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>This is Home Screen Page</Text>
+        <Text style={styles.headerLine}>Mylo</Text>
+        <Text style={styles.tagLine}>Invest your spare change.</Text>
         <Button
+          style={styles.buttonUI}
           onPress={() => this.props.navigation.navigate("LoginScreen")}
           title="Login Screen"
         />
@@ -18,8 +20,20 @@ class HomeScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
+    padding: 0,
+    alignTexts: "center",
+    justifyContent: "center"
+  },
+  headerLine: {
+    fontSize: 60,
+    fontFamily: "Roboto",
+    paddingBottom: 5,
+    textAlign: "center"
+  },
+  tagLine: {
+    textAlign: "center",
+    fontSize: 19,
+    paddingBottom: 30
   }
 });
 
