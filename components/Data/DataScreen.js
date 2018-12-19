@@ -1,13 +1,20 @@
 import React, { Component } from "react";
 import { Text, View, Button, FlatList, ScrollView, Image } from "react-native";
+import * as firebase from "firebase";
 
 class DataScreen extends Component {
   state = {
     albumId: undefined,
     title: undefined,
     imageUrl: undefined,
-    imageThumbnailUrl: undefined
+    imageThumbnailUrl: undefined,
+    currentUser: undefined
   };
+
+  componentDidMount() {
+    const { currentUser } = firebase.auth();
+    this.setState({ currentUser });
+  }
 
   componentWillMount() {
     this.fetchMyloTaskData();
@@ -23,8 +30,11 @@ class DataScreen extends Component {
   };
 
   render() {
+    const { currentUser } = this.state;
     return (
       <View>
+        {/* SHOW UserName and Email */}
+        <Text>Welcome {currentUser && currentUser.email}!</Text>
         <FlatList
           data={this.state.final_json_result}
           renderItem={(

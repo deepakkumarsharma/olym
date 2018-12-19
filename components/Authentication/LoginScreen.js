@@ -14,7 +14,7 @@ class LoginScreen extends Component {
       .signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(
         () => {
-          Alert.alert("Log In Success");
+          this.props.navigation.navigate("DataScreen");
         },
         error => {
           Alert.alert(error.message);
@@ -23,12 +23,16 @@ class LoginScreen extends Component {
   };
 
   createNewUserAccount = () => {
-    this.props.navigation.navigate("SignUp");
+    this.props.navigation.navigate("SignUpScreen");
+  };
+
+  handleHomeRequest = () => {
+    this.props.navigation.navigate("HomeScreen");
   };
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Text>This is Login Screen Page</Text>
         <TextInput
           placeholder="Enter Email"
@@ -57,20 +61,24 @@ class LoginScreen extends Component {
         />
         <Text> </Text>
         {/* Button to go back to home page */}
-        <Button
-          onPress={() => this.props.navigation.navigate("Home")}
-          title="Home Screen"
-        />
+        <Button onPress={() => this.handleHomeRequest()} title="Home Screen" />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
   textInputConteiner: {
-    width: 200,
     height: 40,
-    borderWidth: 1
+    width: "90%",
+    borderColor: "gray",
+    borderWidth: 1,
+    marginTop: 8
   }
 });
 

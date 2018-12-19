@@ -34,7 +34,7 @@ export default class SignUpScreen extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Text>SignUp Screen</Text>
         <TextInput
           placeholder="Enter Email"
@@ -70,16 +70,26 @@ export default class SignUpScreen extends Component {
         />
 
         <Button title="Submit" onPress={() => this.handleSubmit()} />
-        <Button title="Back to Login" onPress={() => this.backToLoginPage()} />
+        <Button
+          title="Already have an account?"
+          onPress={() => this.backToLoginPage()}
+        />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
   textInputConteiner: {
-    width: 200,
     height: 40,
-    borderWidth: 1
+    width: "90%",
+    borderColor: "gray",
+    borderWidth: 1,
+    marginTop: 8
   }
 });
