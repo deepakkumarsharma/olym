@@ -29,7 +29,7 @@ export default class SignUpScreen extends Component {
   };
 
   backToLoginPage = () => {
-    this.props.navigation.navigate("Login");
+    this.props.navigation.navigate("LoginScreen");
   };
 
   render() {

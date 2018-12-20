@@ -1,20 +1,21 @@
 import React, { Component } from "react";
-import { Text, View, Button, FlatList, ScrollView, Image } from "react-native";
-import * as firebase from "firebase";
+import {
+  Text,
+  View,
+  StyleSheet,
+  FlatList,
+  ScrollView,
+  Image
+} from "react-native";
+import { Button, Card, Title, Paragraph } from "react-native-paper";
 
 class DataScreen extends Component {
   state = {
     albumId: undefined,
     title: undefined,
     imageUrl: undefined,
-    imageThumbnailUrl: undefined,
-    currentUser: undefined
+    imageThumbnailUrl: undefined
   };
-
-  componentDidMount() {
-    const { currentUser } = firebase.auth();
-    this.setState({ currentUser });
-  }
 
   componentWillMount() {
     this.fetchMyloTaskData();
@@ -29,24 +30,41 @@ class DataScreen extends Component {
     });
   };
 
+  handleSignOut() {
+    this.props.navigation.navigate("HomeScreen");
+  }
+
   render() {
-    const { currentUser } = this.state;
     return (
       <View>
-        {/* SHOW UserName and Email */}
-        <Text>Welcome {currentUser && currentUser.email}!</Text>
+        {/* Sign Out Button */}
+        <Button
+          style={styles.buttonDesign}
+          mode="contained"
+          onPress={() => this.handleSignOut()}
+        >
+          Sign Out
+        </Button>
+        {/* FlatList of data */}
         <FlatList
           data={this.state.final_json_result}
           renderItem={(
             { item } // Show final result of screen
           ) => (
             <ScrollView>
-              <Text>{item.title}</Text>
-              <Image
-                source={{ uri: item.thumbnailUrl }}
-                style={{ height: 200, width: 200 }}
-                resizeMode="contain"
-              />
+              <Card style={styles.surfaceElevation}>
+                <Card.Cover source={{ uri: item.url }} />
+                <Text>{"\n"}</Text>
+                <Card.Content>
+                  <Title>Album Number : {item.albumId}</Title>
+                  <Paragraph>{item.title}</Paragraph>
+                </Card.Content>
+              </Card>
+
+              <Text>
+                {"\n"}
+                {"\n"}
+              </Text>
             </ScrollView>
           )} //
           keyExtractor={(item, index) => index.toString()}
@@ -55,5 +73,22 @@ class DataScreen extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  buttonDesign: {
+    backgroundColor: "#1976d2",
+    padding: 20,
+    marginTop: 25,
+    marginBottom: 25,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  textContainer: {
+    textAlign: "center"
+  },
+  surfaceElevation: {
+    elevation: 9
+  }
+});
 
 export default DataScreen;
