@@ -57,7 +57,7 @@ class DataScreen extends Component {
                 <Text>{"\n"}</Text>
                 <Card.Content>
                   <Title>Album Number : {item.albumId}</Title>
-                  <Paragraph>{item.title}</Paragraph>
+                  <Paragraph>Title: {item.title}</Paragraph>
                 </Card.Content>
               </Card>
 
