@@ -22,8 +22,10 @@ export default class Loading extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Loading</Text>
-        <ActivityIndicator size="large" />
+        <Text style={styles.textContainer}>
+          Wait little more, it's almost done
+        </Text>
+        <ActivityIndicator size="large" color="#1976d2" />
       </View>
     );
   }
@@ -34,5 +36,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
+  },
+  textContainer: {
+    textAlign: "center",
+    fontSize: 20,
+    padding: 35
   }
 });

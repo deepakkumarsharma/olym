@@ -77,8 +77,13 @@ const styles = StyleSheet.create({
     height: 40,
     width: "90%",
     borderColor: "gray",
-    borderWidth: 1,
+    borderBottomWidth: 1,
     marginTop: 8
+  },
+  textContainer: {
+    fontSize: 45,
+    fontWeight: "bold",
+    padding: 27
   }
 });
 
