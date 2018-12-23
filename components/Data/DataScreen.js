@@ -21,6 +21,7 @@ class DataScreen extends Component {
     this.fetchMyloTaskData();
   }
 
+  // https://facebook.github.io/react-native/docs/network#handling-the-response
   fetchMyloTaskData = async () => {
     const api_call = await fetch("https://jsonplaceholder.typicode.com/photos");
     const api_call_to_json = await api_call.json();

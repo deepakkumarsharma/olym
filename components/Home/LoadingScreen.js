@@ -13,6 +13,7 @@ export default class Loading extends React.Component {
     }
   }
 
+  // User authentication check
   componentDidMount = () => {
     firebase.auth().onAuthStateChanged(user => {
       this.props.navigation.navigate(user ? "HomeScreen" : "DataScreen");

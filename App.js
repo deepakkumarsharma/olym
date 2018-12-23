@@ -7,7 +7,7 @@ import SignUpScreen from "./components/Authentication/SignUpScreen";
 
 // https://stackoverflow.com/questions/53827579/react-native-navigation-problem-for-user-authentication-with-firebase?noredirect=1#comment94503912_53827579
 // https://reactnavigation.org/docs/en/auth-flow.html
-
+// Switch between request page
 export default createAppContainer(
   createSwitchNavigator(
     {
@@ -17,6 +17,7 @@ export default createAppContainer(
       LoginScreen,
       DataScreen
     },
+    // Show login screen as initial page
     {
       initialRouteName: "LoadingScreen"
     }
